@@ -10,7 +10,6 @@ import { History } from 'src/app/Models/History';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-  videoID!: string | null;
   videoURL: string = "" ;
   linkFormControl = new FormControl('', []);
   safeURL !: SafeResourceUrl;
@@ -38,11 +37,16 @@ export class SearchBarComponent implements OnInit {
   
     this.videoURL=this.linkFormControl.value;
     this.newHistory.url=this.linkFormControl.value;
-    console.log(Date.now());
     this.newHistory.timeDate=this.time.toLocaleString();
     this.data.sendURL(this.videoURL);
     this.addToHistory(this.newHistory);
+    this.updateHistory();
   }
+
+  updateHistory(){    
+    this.data.updateHistory();    
+  } 
+
 
 
 

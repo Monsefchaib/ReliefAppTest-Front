@@ -14,7 +14,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.data.bookmarksNumber.subscribe(bkNumber => this.numberOfBookmarks = bkNumber);
+    this.data.bookmarksNumber.subscribe(response => this.numberOfBookmarks = response);
   }
 
 }

@@ -15,20 +15,29 @@ export class VideoViewComponent implements OnInit {
   constructor(private data:DataServiceService, private bookmarksService:BookmarksService) { }
 
   ngOnInit(): void {
+
     this.data.currentMessage.subscribe((message) => {
       if(this.videoURL !== "https://www.youtube.com/embed/null"){
        this.visible = true
-       console.log("ana hnaa")
     }
        this.videoURL=message;
 
     });
+
   }
 
   addToBookmarks(){
     this.bookmarksService.addToBookmarks(this.videoURL).subscribe((response)=>{
       console.log(response);
-      this.starType="star"
+      this.starType="star";
     })
+    this.updateBookmars();
   }
+
+  updateBookmars(){    
+    this.data.updateBookmarks();    
+  } 
+
+
+
 }
