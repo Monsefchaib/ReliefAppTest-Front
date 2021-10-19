@@ -18,13 +18,16 @@ export class BookmarksComponent implements OnInit {
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.videoURL = message);
     this.getAllBookmarks();
+    this.updateBookmarksFromBookmarksComp(); 
   }
 
   getAllBookmarks(){
     this.bookmarksService.getAllBookmarks().subscribe((response:any)=>{
+      if(response !== null){
       this.bookMarksList=response;
       this.bookMarksNumber=this.bookMarksList.length;
       this.data.sendBookmarksNumber(this.bookMarksNumber);
+      }
     })
     }
     
@@ -32,6 +35,13 @@ export class BookmarksComponent implements OnInit {
       this.data.sendURL(value);
     }
 
-    
+    updateBookmarksFromBookmarksComp(){
+      if (this.data.bookmarsVar==undefined) {  
+        this.data.bookmarsVar = this.data.    
+        invokeHistoryMethod.subscribe((name:string) => {    
+          this.getAllBookmarks();    
+        });  
+      }  
+      }  
 
 }

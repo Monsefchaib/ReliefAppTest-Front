@@ -13,8 +13,7 @@ export class HistoryComponent implements OnInit {
   videoID!: string | null;
   videoURL: string = "" ;
   historyList: History[] = [];
-  newHistory :History={} as History;
-  tempHistory :History={} as History;
+
   constructor(private data : DataServiceService, private historyServices: HistoryService) {
     
    }
@@ -22,15 +21,29 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
 
       this.getAllHistory();
+      this.updateHistoryFromSearchComponent();
   }
 
   getAllHistory(){
     this.historyServices.getAllHistory().subscribe((response:any)=>{
-      this.historyList=response.reverse();
+      if(response !== null){
+      this.historyList=response.reverse()
+      }
     })
+  
   }
-clickedLink(value:string){
-  this.data.sendURL(value);
-}
+
+  clickedLink(value:string){
+    this.data.sendURL(value);
+  }
+
+  updateHistoryFromSearchComponent(){
+  if (this.data.subsVar==undefined) {  
+    this.data.subsVar = this.data.    
+    invokeHistoryMethod.subscribe((name:string) => {    
+      this.getAllHistory();    
+    });  
+  }  
+  }  
 
 }
