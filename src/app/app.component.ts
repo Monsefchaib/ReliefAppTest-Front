@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataServiceService } from './Services/data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  numberOfBookmarks:number = 0;
   title = 'ReliefApp-FRONT';
+
+  constructor(private data:DataServiceService){
+  }
+
+  ngOnInit(): void {
+    this.data.bookmarksNumber.subscribe(bkNumber => this.numberOfBookmarks = bkNumber);
+  }
+
 }

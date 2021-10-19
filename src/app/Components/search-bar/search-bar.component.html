@@ -1,0 +1,33 @@
+
+        <form class="example-form">
+            <div id="row-rev" class="content">
+                <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Insert a youtube link</mat-label>
+            <input [formControl]="linkFormControl" matInput>
+        </mat-form-field>
+    </div>
+        <div>
+
+            <button mat-raised-button color="warn" (click)="clicklink()">Play</button>
+        </div>
+        </div>
+     </form>
+  
+
+
+
+     <!-- <form class="example-form">
+        <mat-grid-list cols="2" rowHeight="2:1">
+           <mat-grid-tile>
+           <mat-form-field class="example-full-width" appearance="fill">
+           <mat-label>Insert a youtube link</mat-label>
+           <input [formControl]="linkFormControl" matInput>
+           </mat-form-field>
+           </mat-grid-tile>
+           <mat-grid-tile>
+           <button mat-raised-button color="warn" (click)="clicklink()">Play</button>
+           </mat-grid-tile>
+       </mat-grid-list>
+
+    </form> -->

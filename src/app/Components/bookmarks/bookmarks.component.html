@@ -1,0 +1,5 @@
+<mat-selection-list #shoes [multiple]="false">
+    <mat-list-option *ngFor="let bookmark of bookMarksList" [value]="bookmark" (click)="clickedLink(bookmark.url)">
+      {{bookmark.url}}
+    </mat-list-option>
+  </mat-selection-list>

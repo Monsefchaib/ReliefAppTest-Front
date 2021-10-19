@@ -1,0 +1,8 @@
+<div *ngIf="visible">
+<div class="star-icon">
+    <button (click)="addToBookmarks()"><mat-icon>{{starType}}</mat-icon></button>
+   </div>
+   <div  >
+<iframe  width="800" height="500" [src]="videoURL | safeLink" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
